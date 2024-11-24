@@ -25,6 +25,11 @@ function App() {
       },
       body: JSON.stringify(user)
     })
+      .then(response => response.json())
+      .then(data => {
+        setUser([...users, data])
+        event.target.reset()
+      })
   }
   return (
     <>
@@ -32,10 +37,11 @@ function App() {
       <h1>Users Management</h1>
       <form onSubmit={handleOnSubmit}>
         <input type="text" name="name" placeholder="Enter name" /><br />
-        <input type="text" name="email" placeholder="Enter email" />
+        <input type="text" name="email" placeholder="Enter email" /><br />
         <input type="submit" />
       </form>
       <p>Data from server : {users.length} users</p>
+      {users.map(user => <p key={user.id}>{user.id} {user.name}</p>)}
 
     </>
   )
