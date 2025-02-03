@@ -5,32 +5,32 @@ import './App.css'
 
 function App() {
 
-  const [users, setUser] = useState([])
+  // const [users, setUser] = useState([])
 
-  useEffect(() => {
-    fetch('http://localhost:5000/users')
-      .then(response => response.json())
-      .then(data => setUser(data))
-  }, [])
+  // useEffect(() => {
+  //   fetch('http://localhost:5000/users')
+  //     .then(response => response.json())
+  //     .then(data => setUser(data))
+  // }, [])
 
-  const handleOnSubmit = event => {
-    event.preventDefault()
-    const name = event.target.name.value
-    const email = event.target.email.value
-    const user = { name, email }
-    fetch('http://localhost:5000/users', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(user)
-    })
-      .then(response => response.json())
-      .then(data => {
-        setUser([...users, data])
-        event.target.reset()
-      })
-  }
+  // const handleOnSubmit = event => {
+  //   event.preventDefault()
+  //   const name = event.target.name.value
+  //   const email = event.target.email.value
+  //   const user = { name, email }
+  //   fetch('http://localhost:5000/users', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify(user)
+  //   })
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       setUser([...users, data])
+  //       event.target.reset()
+  //     })
+  // }
   return (
     <>
 
